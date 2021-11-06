@@ -11,6 +11,9 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Slider from '@mui/material/Slider';
 
 
 function Calculator() {
@@ -18,6 +21,10 @@ function Calculator() {
     const [theme, setTheme] = useState(themes.normal);
     const [premium, setPremium] = useState();
     const [logo, setLogo] = useState(logos.wo);
+    const [firstName, setfirstName] = useState("Hello");
+    const [cover, setCover] = useState();
+    const [lastName, setlastName] = useState("");
+
 
     const calculatePremium = () => {
         const premium = Math.ceil(Math.random() * 50);
@@ -44,7 +51,6 @@ function Calculator() {
 
     return (
         <ThemeProvider theme={theme}>
-
             <div style={{
                 display: "flex",
                 alignItems: "center",
@@ -69,63 +75,101 @@ function Calculator() {
                         <img src={logo} alt="logo" style={{ width: '120px', height: '100%', Padding: "2px" }}></img>
                     </Toolbar>
                 </AppBar>
-                <FormControl sx={{ m: 1, minWidth: 180 }}>
-                    <InputLabel>Provider</InputLabel>
-                    <Select
-                        value={provider}
-                        label="Provider"
-                        onChange={(e) => setProvider(e.target.value)}
-                    >
-                        <MenuItem value="">
-                            <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={"3"}>Lloyds</MenuItem>
-                        <MenuItem value={"2"}>Hallifax</MenuItem>
-                        <MenuItem value={"1"}>Scottish Widdows</MenuItem>
-                    </Select>
-                </FormControl>
+                <Box
+                    component="form"
+                    sx={{
+                        '& .MuiTextField-root': { m: 1, width: '25ch', maxWidth: '25ch' },
+                    }}
+                    noValidate
+                    autoComplete="off"
+                >
+                    <TextField
+                        label="Enter your first name"
+                        variant="outlined"
+                        type="string"
+                        onChange={(e) => setfirstName(e.target.value)}
+                    />
 
-                <Button variant="contained" color="secondary" size="medium"
-
-                    onClick={() => {
-                        if (provider === '') {
-                            setTheme(themes.normal)
-                        }
-                        if (provider === '3') {
-                            setTheme(themes.lloyds)
-                        }
-                        if (provider === '3') {
-                            setLogo(logos.lb)
-                        }
-                        if (provider === '1') {
-                            setTheme(themes.widdows)
-                        }
-                        if (provider === '1') {
-                            setLogo(logos.s)
-                        }
-                        if (provider === '2') {
-                            setTheme(themes.hallifax)
-                        }
-
-                        if (provider === '2') {
-                            setLogo(logos.ha)
-                        }
-                        if (provider === '') {
-                            setLogo(logos.wo)
-                        }
-
-                        calculatePremium();
-
-
-                    }}> Submit
-
-
-                </Button>
+                    <TextField
+                        label="Enter your Surname"
+                        variant="outlined"
+                        type="string"
+                        onChange={(e) => setlastName(e.target.value)}
+                    />
+                    <br />
+                    <FormControl sx={{ m: 1, minWidth: 180 }}>
+                        <InputLabel>Provider</InputLabel>
+                        <Select
+                            value={provider}
+                            label="Provider"
+                            onChange={(e) => setProvider(e.target.value)}
+                        >
+                            <MenuItem value="">
+                                <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={"3"}>Lloyds</MenuItem>
+                            <MenuItem value={"2"}>Hallifax</MenuItem>
+                            <MenuItem value={"1"}>Scottish Widdows</MenuItem>
+                        </Select>
+                    </FormControl>
+                    <InputLabel>Choose Cover</InputLabel>
+                    <Slider
+                        size="small"
+                        defaultValue={50000}
+                        aria-label="Small"
+                        step={50000}
+                        marks
+                        min={100000}
+                        max={250000}
+                        valueLabelDisplay="auto"
+                        onChange={(e) => setCover(e.target.value)}
+                    />
 
 
-                <h3>£{premium}</h3>
+                    <Button variant="contained" color="secondary" size="medium"
+
+                        onClick={() => {
+                            if (provider === '') {
+                                setTheme(themes.normal)
+                            }
+                            if (provider === '3') {
+                                setTheme(themes.lloyds)
+                            }
+                            if (provider === '3') {
+                                setLogo(logos.lb)
+                            }
+                            if (provider === '1') {
+                                setTheme(themes.widdows)
+                            }
+                            if (provider === '1') {
+                                setLogo(logos.s)
+                            }
+                            if (provider === '2') {
+                                setTheme(themes.hallifax)
+                            }
+
+                            if (provider === '2') {
+                                setLogo(logos.ha)
+                            }
+                            if (provider === '') {
+                                setLogo(logos.wo)
+                            }
+
+                            calculatePremium();
+
+
+                        }}> Submit
+
+
+                    </Button>
+                    <h4>{firstName.charAt(0).toUpperCase() + firstName.slice(1)} your quote is ${premium} pa </h4>
+                   
+                </Box>
 
             </div>
+
+
+
         </ThemeProvider>
     )
 }
