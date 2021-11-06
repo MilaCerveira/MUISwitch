@@ -1,7 +1,10 @@
-const l ='lb.png'
-const h ='ha.png'
-const s = 's.png'
-const mc = 'mc.jpg'
+import lb from './lb.png';
+import ha from './ha.png';
+import s from './s.png';
 
-const logos = { l, h, s, mc}
+// const l ='lb.png'
+// const h ='ha.png'
+// const s = 's.png'
+
+const logos = { lb, ha, s}
 export default logos
