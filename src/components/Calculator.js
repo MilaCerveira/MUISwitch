@@ -9,14 +9,15 @@ import logos from "../logos/logo.js";
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
 
 
 function Calculator() {
     const [provider, setProvider] = useState("");
     const [theme, setTheme] = useState(themes.normal);
     const [premium, setPremium] = useState();
-    const [logo, setLogo] = useState(logos.s);
+    const [logo, setLogo] = useState(logos.wo);
 
     const calculatePremium = () => {
         const premium = Math.ceil(Math.random() * 50);
@@ -51,7 +52,7 @@ function Calculator() {
                 height: "70vh",
             }}>
 
-                <AppBar style={{ height: '80px' }}
+                <AppBar style={{ height: '90px' }}
                 >
                     <Toolbar>
 
@@ -65,19 +66,24 @@ function Calculator() {
                             <MenuIcon />
 
                         </IconButton>
-                        <img src= {logo} alt="logo" style={{ width: '150px' , height:'70px', padding:'2px'}}></img>
+                        <img src={logo} alt="logo" style={{ width: '120px', height: '100%', Padding: "2px" }}></img>
                     </Toolbar>
                 </AppBar>
-
-                <Select
-                    value={provider}
-                    label="Provider"
-                    onChange={(e) => setProvider(e.target.value)}
-                >
-                    <MenuItem value={"3"}>Lloyds</MenuItem>
-                    <MenuItem value={"2"}>Hallifax</MenuItem>
-                    <MenuItem value={"1"}>Scottish Widdows</MenuItem>
-                </Select>
+                <FormControl sx={{ m: 1, minWidth: 180 }}>
+                    <InputLabel>Provider</InputLabel>
+                    <Select
+                        value={provider}
+                        label="Provider"
+                        onChange={(e) => setProvider(e.target.value)}
+                    >
+                        <MenuItem value="">
+                            <em>None</em>
+                        </MenuItem>
+                        <MenuItem value={"3"}>Lloyds</MenuItem>
+                        <MenuItem value={"2"}>Hallifax</MenuItem>
+                        <MenuItem value={"1"}>Scottish Widdows</MenuItem>
+                    </Select>
+                </FormControl>
 
                 <Button variant="contained" color="secondary" size="medium"
 
@@ -86,23 +92,26 @@ function Calculator() {
                             setTheme(themes.normal)
                         }
                         if (provider === '3') {
-                            setTheme(themes.lloyds) 
+                            setTheme(themes.lloyds)
                         }
-                    if(provider ==='3') {
-                        setLogo(logos.lb)
-                    }
+                        if (provider === '3') {
+                            setLogo(logos.lb)
+                        }
                         if (provider === '1') {
                             setTheme(themes.widdows)
                         }
-                        if(provider ==='1') {
+                        if (provider === '1') {
                             setLogo(logos.s)
                         }
                         if (provider === '2') {
                             setTheme(themes.hallifax)
                         }
 
-                        if(provider ==='2') {
+                        if (provider === '2') {
                             setLogo(logos.ha)
+                        }
+                        if (provider === '') {
+                            setLogo(logos.wo)
                         }
 
                         calculatePremium();
@@ -113,8 +122,9 @@ function Calculator() {
 
                 </Button>
 
+
                 <h3>£{premium}</h3>
-                
+
             </div>
         </ThemeProvider>
     )
