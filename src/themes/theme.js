@@ -5,6 +5,10 @@ const hallifax = createTheme({
 			main: '#08235a',
 			contrastText: '#ffffff'
 		},
+        secondary:{
+            main: '#1385a3',
+            
+        },
 		background: {
 			default: '#ffffff'
 		},
@@ -20,6 +24,10 @@ const lloyds = createTheme({
 			main: '#135a08',
 			contrastText: '#ffffff'
 		},
+        secondary:{
+            main: '#13a32f',
+            
+        },
 		background: {
 			default: '#ffffff'
 		},
@@ -32,9 +40,12 @@ const lloyds = createTheme({
 const widdows = createTheme({
 	palette: {
 		primary: {
-			main: '#5a0819',
+			main: '#A30000', 
 			contrastText: '#ffffff'
 		},
+        secondary:{
+            main: '#93032E'
+        },
 		background: {
 			default: '#ffffff'
 		},
@@ -46,10 +57,13 @@ const widdows = createTheme({
 
 const normal = createTheme({
 	palette: {
-		primary: {
-			main: '#6665',
+		primary: { 
+			main: '#340357',
 			contrastText: '#ffffff'
 		},
+        secondary:{
+            main: '#6665'
+        },
 		background: {
 			default: '#000000'
 		},
