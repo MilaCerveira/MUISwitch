@@ -9,21 +9,22 @@ import themes from "../themes/theme.js"
 
 function Calculator() {
     const [ provider, setProvider]  = useState("");
-    const theme = useMemo( () => { 
-        console.log(provider)
-        if(provider === ''){
-            return themes.normal
-        } 
-        if(provider === '3'){
-            return themes.lloyds
-        } 
-        if(provider === '1'){
-            return themes.widdows
-        } 
-        if(provider === '2'){
-            return themes.hallifax
-        } 
-     }, [provider] )
+    const [ theme, setTheme]  = useState(themes.normal);
+    // const theme = useMemo( () => { 
+ 
+    //     // if(provider === ''){
+    //     //     return themes.normal
+    //     // } 
+    //     // if(provider === '3'){
+    //     //     return themes.lloyds
+    //     // } 
+    //     // if(provider === '1'){
+    //     //     return themes.widdows
+    //     // } 
+    //     // if(provider === '2'){
+    //     //     return themes.hallifax
+    //     // } 
+    //  }, [provider] )
     // do this function when parameters in the array change
 
     return (
@@ -43,7 +44,18 @@ function Calculator() {
                 <Button
                     
                     onClick={() => {
-                        
+                        if(provider === ''){
+                            setTheme(themes.normal) 
+                        } 
+                        if(provider === '3'){
+                            setTheme(themes.lloyds)
+                        } 
+                        if(provider === '1'){
+                            setTheme(themes.widdows)
+                        } 
+                        if(provider === '2'){
+                            setTheme(themes.hallifax)
+                        } 
 
                     }}> hello
 
