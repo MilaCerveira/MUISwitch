@@ -16,6 +16,9 @@ import TextField from '@mui/material/TextField';
 import Slider from '@mui/material/Slider';
 
 
+
+
+
 function Calculator() {
     const [provider, setProvider] = useState("");
     const [theme, setTheme] = useState(themes.normal);
@@ -24,6 +27,10 @@ function Calculator() {
     const [firstName, setfirstName] = useState("Hello");
     const [cover, setCover] = useState();
     const [lastName, setlastName] = useState("");
+    
+   
+
+    
 
 
     const calculatePremium = () => {
@@ -31,6 +38,8 @@ function Calculator() {
         setPremium(premium.toFixed(2));
 
     };
+
+    
     // const [logo, setLogo] = useState('logos.mc');
     // const theme = useMemo( () => { 
 
@@ -78,7 +87,7 @@ function Calculator() {
                 <Box
                     component="form"
                     sx={{
-                        '& .MuiTextField-root': { m: 1, width: '25ch', maxWidth: '25ch' },
+                        '& .MuiTextField-root': { m: 1, width: '25ch', maxWidth: '20ch' },
                     }}
                     noValidate
                     autoComplete="off"
@@ -156,20 +165,19 @@ function Calculator() {
                             }
 
                             calculatePremium();
-
+                            
 
                         }}> Submit
 
 
                     </Button>
-                    <h4>{firstName.charAt(0).toUpperCase() + firstName.slice(1)} your quote is ${premium} pa </h4>
-                   
+
+                    <h4> {firstName} {lastName} your premium from {provider} is {premium} based on cover {cover} </h4>
                 </Box>
 
             </div>
-
-
-
+            
+            
         </ThemeProvider>
     )
 }
