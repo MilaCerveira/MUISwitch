@@ -172,7 +172,7 @@ function Calculator() {
 
                     </Button>
 
-                    <h4> {firstName} {lastName} your premium from {provider} is {premium} based on cover {cover} </h4>
+                    <h4> {firstName.charAt(0).toUpperCase() + firstName.slice(1)}  {lastName.charAt(0).toUpperCase() + firstName.slice(1)}  your premium from {provider} is £{premium} based on cover {cover} </h4>
                 </Box>
 
             </div>
