@@ -19,6 +19,7 @@ import Slider from '@mui/material/Slider';
 
 
 
+
 function Calculator() {
     const [provider, setProvider] = useState("");
     const [theme, setTheme] = useState(themes.normal);
@@ -27,6 +28,8 @@ function Calculator() {
     const [firstName, setfirstName] = useState("Hello");
     const [cover, setCover] = useState();
     const [lastName, setlastName] = useState("");
+    const [showMessage, setShowMessage] = useState(false);
+   
     
    
 
@@ -38,6 +41,8 @@ function Calculator() {
         setPremium(premium.toFixed(2));
 
     };
+
+    
 
     
     // const [logo, setLogo] = useState('logos.mc');
@@ -166,20 +171,22 @@ function Calculator() {
 
                             calculatePremium();
                             
-
+                            setShowMessage(!showMessage)
+                            
+                            
                         }}> Submit
 
 
-                    </Button>
+</Button>
 
-                    <h4> {firstName.charAt(0).toUpperCase() + firstName.slice(1)}  {lastName.charAt(0).toUpperCase() + firstName.slice(1)}  your premium from {provider} is £{premium} based on cover {cover} </h4>
-                </Box>
+{showMessage && <h4> {firstName.charAt(0).toUpperCase() + firstName.slice(1)}  {lastName.charAt(0).toUpperCase() + firstName.slice(1)}  your premium from {provider} is £{premium} based on cover {cover} </h4>}
+</Box>
 
-            </div>
-            
-            
-        </ThemeProvider>
-    )
+</div>
+
+
+</ThemeProvider>
+)
 }
 
 export default Calculator
