@@ -182,7 +182,7 @@ function Calculator() {
 
 </Button>
 
-{showMessage && <h4> {firstName.charAt(0).toUpperCase() + firstName.slice(1)}  {lastName.charAt(0).toUpperCase() + firstName.slice(1)}  your premium from {provider} is £{premium} based on cover £{cover} </h4>}
+{showMessage && <h4> {firstName.charAt(0).toUpperCase() + firstName.slice(1)}  {lastName.charAt(0).toUpperCase() + firstName.slice(1)} <br/> your premium from {provider} is £{premium} based on cover £{cover} </h4>}
 </Box>
 
 </div>
