@@ -89,6 +89,8 @@ function Calculator() {
                         <img src={logo} alt="logo" style={{ width: '120px', height: '100%', Padding: "2px" }}></img>
                     </Toolbar>
                 </AppBar>
+                <br/>
+                
                 <Box
                     component="form"
                     sx={{
@@ -97,6 +99,7 @@ function Calculator() {
                     noValidate
                     autoComplete="off"
                 >
+                    
                     <TextField
                         label="Enter your first name"
                         variant="outlined"
@@ -179,7 +182,7 @@ function Calculator() {
 
 </Button>
 
-{showMessage && <h4> {firstName.charAt(0).toUpperCase() + firstName.slice(1)}  {lastName.charAt(0).toUpperCase() + firstName.slice(1)}  your premium from {provider} is £{premium} based on cover {cover} </h4>}
+{showMessage && <h4> {firstName.charAt(0).toUpperCase() + firstName.slice(1)}  {lastName.charAt(0).toUpperCase() + firstName.slice(1)}  your premium from {provider} is £{premium} based on cover £{cover} </h4>}
 </Box>
 
 </div>
